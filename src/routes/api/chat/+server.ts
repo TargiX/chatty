@@ -11,7 +11,7 @@ export const config: Config = {
 
 export const POST: RequestHandler = async ({ request }) => {
 	try {
-		if (!process.env.OPENAI_KEY) {
+		if (!import.meta.env.VITE_OPENAI_KEY) {
 			throw new Error('OPENAI_KEY env variable not set')
 		}
 
@@ -37,7 +37,7 @@ export const POST: RequestHandler = async ({ request }) => {
 		const moderationRes = await fetch('https://api.openai.com/v1/moderations', {
 			headers: {
 				'Content-Type': 'application/json',
-				Authorization: `Bearer ${process.env.OPENAI_KEY}`
+				Authorization: `Bearer ${import.meta.env.VITE_OPENAI_KEY}`
 			},
 			method: 'POST',
 			body: JSON.stringify({
@@ -74,7 +74,7 @@ export const POST: RequestHandler = async ({ request }) => {
 
 		const chatResponse = await fetch('https://api.openai.com/v1/chat/completions', {
 			headers: {
-				Authorization: `Bearer ${process.env.OPENAI_KEY}`,
+				Authorization: `Bearer ${import.meta.env.VITE_OPENAI_KEY}`,
 				'Content-Type': 'application/json'
 			},
 			method: 'POST',
