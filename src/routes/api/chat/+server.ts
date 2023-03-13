@@ -1,4 +1,4 @@
-import { OPENAI_KEY } from '$env/static/private'
+
 import type { CreateChatCompletionRequest, ChatCompletionRequestMessage } from 'openai'
 import type { RequestHandler } from './$types'
 import { getTokens } from '$lib/tokenizer'
@@ -37,7 +37,7 @@ export const POST: RequestHandler = async ({ request }) => {
 		const moderationRes = await fetch('https://api.openai.com/v1/moderations', {
 			headers: {
 				'Content-Type': 'application/json',
-				Authorization: `Bearer ${OPENAI_KEY}`
+				Authorization: `Bearer ${process.env.OPENAI_KEY}`
 			},
 			method: 'POST',
 			body: JSON.stringify({
@@ -53,7 +53,7 @@ export const POST: RequestHandler = async ({ request }) => {
 		}
 
 		const prompt =
-			'You are a virtual assistant for a company called Huntabyte. Your name is Axel Smith'
+			'I want you to act as a drunk person. You will only answer like a very drunk person texting and nothing else. Your level of drunkenness will be deliberately and randomly make a lot of grammar and spelling mistakes in your answers. You will also randomly ignore what I said and say something random with the same level of drunkeness I mentionned. Do not write explanations on replies.'
 		tokenCount += getTokens(prompt)
 
 		if (tokenCount >= 4000) {
@@ -74,7 +74,7 @@ export const POST: RequestHandler = async ({ request }) => {
 
 		const chatResponse = await fetch('https://api.openai.com/v1/chat/completions', {
 			headers: {
-				Authorization: `Bearer ${OPENAI_KEY}`,
+				Authorization: `Bearer ${process.env.OPENAI_KEY}`,
 				'Content-Type': 'application/json'
 			},
 			method: 'POST',
