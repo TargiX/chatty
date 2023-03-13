@@ -11,7 +11,7 @@ export const config: Config = {
 
 export const POST: RequestHandler = async ({ request }) => {
 	try {
-		if (!OPENAI_KEY) {
+		if (!process.env.OPENAI_KEY) {
 			throw new Error('OPENAI_KEY env variable not set')
 		}
 
