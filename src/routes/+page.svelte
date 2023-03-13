@@ -64,10 +64,10 @@
 
 <div class="flex flex-col pt-4 w-full px-8 items-center gap-2">
 	<div>
-		<h1 class="text-2xl font-bold w-full text-center">DRUNKGPT</h1>
+		<h1 class="text-4xl font-bold w-full text-center">DRUNKGPT</h1>
 		<!-- <p class="text-sm italic">Powered by gpt-3.5-turbo</p> -->
 	</div>
-	<div class="h-[500px] w-full bg-gray-900 rounded-md p-4 overflow-y-auto flex flex-col gap-4">
+	<div style="background-color: #538e8d91;" class="h-[500px] w-fullopacity-90 rounded-md p-4 overflow-y-auto flex flex-col gap-4">
 		<div class="flex flex-col gap-2">
 			<ChatMessage type="assistant" message="hleloo my frrriiendddddd!!! how r u doinnn?!?! #partytime!" />
 			{#each chatMessages as message}
@@ -83,10 +83,11 @@
 		<div class="" bind:this={scrollToDiv} />
 	</div>
 	<form
+	style="background-color: #538e8d91;" 
 		class="flex w-full rounded-md gap-4 bg-gray-900 p-4"
 		on:submit|preventDefault={() => handleSubmit()}
 	>
-		<input type="text" class="input input-bordered w-full" bind:value={query} />
-		<button type="submit" class="btn btn-accent"> Send </button>
+		<input style="background-color: #4c4a69;" type="text" class="input input-bordered w-full" bind:value={query} />
+		<button type="submit" style="background-color: #f49455; border-color: #f49455;" class="btn btn-accent"> Send </button>
 	</form>
 </div>

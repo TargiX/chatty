@@ -6,6 +6,9 @@
 html,
 body {
 	@apply h-full;
+	background: url('/img/TargiX_bar_full_of_tiny_robots_dancing_and_partying_a5606744-8d89-4d6c-bbf5-59c447e2f4ca.png');
+	background-repeat: no-repeat;
+	background-size: cover;
 }
 
 body {
