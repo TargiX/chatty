@@ -67,7 +67,7 @@
 		<h1 class="text-4xl font-bold w-full text-center">DRUNKGPT</h1>
 		<!-- <p class="text-sm italic">Powered by gpt-3.5-turbo</p> -->
 	</div>
-	<div style="background-color: #538e8d91;" class="h-[500px] w-fullopacity-90 rounded-md p-4 overflow-y-auto flex flex-col gap-4">
+	<div style="background-color: #538e8d91; border: 2.3px solid #00fff28c;" class="h-[500px] w-fullopacity-90 rounded-md p-4 overflow-y-auto flex flex-col gap-4">
 		<div class="flex flex-col gap-2">
 			<ChatMessage type="assistant" message="hleloo my frrriiendddddd!!! how r u doinnn?!?! #partytime!" />
 			{#each chatMessages as message}
@@ -87,7 +87,7 @@
 		class="flex w-full rounded-md gap-4 bg-gray-900 p-4"
 		on:submit|preventDefault={() => handleSubmit()}
 	>
-		<input style="background-color: #4c4a69;" type="text" class="input input-bordered w-full" bind:value={query} />
+		<input style="background-color: #4c4a69; border: 2.3px solid #00fff28c;" type="text" class="input input-bordered w-full" bind:value={query} />
 		<button type="submit" style="background-color: #f49455; border-color: #f49455;" class="btn btn-accent"> Send </button>
 	</form>
 </div>
