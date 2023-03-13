@@ -1,4 +1,4 @@
-
+import { OPENAI_KEY } from '$env/static/private'
 import type { CreateChatCompletionRequest, ChatCompletionRequestMessage } from 'openai'
 import type { RequestHandler } from './$types'
 import { getTokens } from '$lib/tokenizer'
@@ -11,7 +11,7 @@ export const config: Config = {
 
 export const POST: RequestHandler = async ({ request }) => {
 	try {
-		if (!import.meta.env.VITE_OPENAI_KEY) {
+		if (!OPENAI_KEY) {
 			throw new Error('OPENAI_KEY env variable not set')
 		}
 
@@ -37,7 +37,7 @@ export const POST: RequestHandler = async ({ request }) => {
 		const moderationRes = await fetch('https://api.openai.com/v1/moderations', {
 			headers: {
 				'Content-Type': 'application/json',
-				Authorization: `Bearer ${import.meta.env.VITE_OPENAI_KEY}`
+				Authorization: `Bearer ${OPENAI_KEY}`
 			},
 			method: 'POST',
 			body: JSON.stringify({
@@ -74,7 +74,7 @@ export const POST: RequestHandler = async ({ request }) => {
 
 		const chatResponse = await fetch('https://api.openai.com/v1/chat/completions', {
 			headers: {
-				Authorization: `Bearer ${import.meta.env.VITE_OPENAI_KEY}`,
+				Authorization: `Bearer ${OPENAI_KEY}`,
 				'Content-Type': 'application/json'
 			},
 			method: 'POST',
